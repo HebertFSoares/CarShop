@@ -6,7 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/style.css" rel="stylesheet">
     </head>
-    <body>
-        <h1>Meus Carros</h1>
-    </body>
+    {% block content %}
+        <body>
+            <h3>Carro 1: {{ cars.model }}</h3>
+        </body>
+    {% endblock %}
 </html>
