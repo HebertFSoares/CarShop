@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from cars.models import Car
 from django.http import HttpResponse
+from .forms import CarFrom 
 
 def cars_view(request):
     cars = Car.objects.all().order_by('model')
@@ -15,5 +16,5 @@ def cars_view(request):
     )
 
 def new_car(request):
-    if request.method == "GET":
-        return HttpResponse("new_cars")
+    new_car_form = CarFrom()
+    return render(request, '')
