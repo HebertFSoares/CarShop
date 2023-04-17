@@ -17,4 +17,4 @@ def cars_view(request):
 
 def new_car(request):
     new_car_form = CarFrom()
-    return render(request, '')
+    return render(request, 'new_cars.html',{'new_car_form': new_car_form})
