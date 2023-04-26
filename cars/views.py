@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+from django.urls import reverse
 from cars.models import Car
 from .forms import CarModelForm 
 
@@ -19,7 +20,7 @@ def new_car(request):
         new_car_form = CarModelForm(request.POST, request.FILES)
         if new_car_form.is_valid():
             new_car_form.save()
-            return redirect('cars/cars_list/')
+            return redirect(reverse('cars_list'))
         
     else:
         new_car_form = CarModelForm()
