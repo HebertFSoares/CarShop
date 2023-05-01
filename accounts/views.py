@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import authenticate,login
 from django.urls import reverse
 
 
@@ -11,4 +12,7 @@ def register(request):
             return redirect('/cars/cars_list')
     elif request.method == "GET":
         use_form = UserCreationForm()
-    return render(request, 'register.html', {'user_form': user_form} )
+    return render(request, 'register.html', {'user_form': user_form})
+
+def login(request):
+   pass
