@@ -15,4 +15,17 @@ def register(request):
     return render(request, 'register.html', {'user_form': user_form})
 
 def login(request):
-   pass
+    if request.method == "POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = authenticate(request,username=username, password=password)
+        
+        if user is not None:
+            login(request, user)
+            return redirect('cars/cars_list')
+        else:
+            login_form =AuthenticationForm()
+            
+    elif request.method == "GET":        
+        login_form = AuthenticationForm()
+        return render(request,'login.html',{'login_form': login_form})
