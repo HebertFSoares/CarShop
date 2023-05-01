@@ -29,3 +29,7 @@ def login(request):
     elif request.method == "GET":        
         login_form = AuthenticationForm()
         return render(request,'login.html',{'login_form': login_form})
+
+def logout(request):
+    logout(request)
+    return redirect('cars/cars_list')
