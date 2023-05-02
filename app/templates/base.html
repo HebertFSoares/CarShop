@@ -77,7 +77,13 @@
           <li><a href="{% url 'new_car' %}">Cadstrar Carro</a></li>
         {% endif %}
         <li><a href="{% url 'cars_list' %}">Carros</a></li>
-        
+        {% if not user.is_authenticated %}
+          <li><a href="{% url 'register' %}"></a></li> 
+        {% endif %}
+
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'logout' %}"></a></li>
+        {% endif %}
       </ul>
     </nav>
   </header>
