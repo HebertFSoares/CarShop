@@ -76,10 +76,13 @@
           <li>Olá,{{ user.username }}</li>
           <li><a href="{% url 'new_car' %}">Cadstrar Carro</a></li>
         {% endif %}
-        <li><a href="{% url 'cars_list' %}">Carros</a></li>
+        
         {% if not user.is_authenticated %}
           <li><a href="{% url 'register' %}"></a></li> 
+          <li><a href="{% url 'login' %}"></a></li> 
         {% endif %}
+
+        <li><a href="{% url 'cars_list' %}">Carros</a></li>
 
         {% if user.is_authenticated %}
           <li><a href="{% url 'logout' %}"></a></li>
