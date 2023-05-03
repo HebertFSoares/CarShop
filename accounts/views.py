@@ -9,26 +9,26 @@ def register(request):
         user_form = UserCreationForm(request.POST)
         if user_form.is_valid():
             user_form.save()
-            return redirect('/cars/cars_list')
+            return redirect('login/')
     elif request.method == "GET":
-        use_form = UserCreationForm()
+        user_form = UserCreationForm()
     return render(request, 'register.html', {'user_form': user_form})
 
-def login(request):
+def user_login(request):
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]
-        user = authenticate(request,username=username, password=password)
+        user = authenticate(request, username=username,  password=password)
         
         if user is not None:
             login(request, user)
-            return redirect('cars/cars_list')
+            return redirect('/cars/cars_list')
         else:
-            login_form =AuthenticationForm()
+            login_form = AuthenticationForm()
             
-    elif request.method == "GET":        
+    else:        
         login_form = AuthenticationForm()
-        return render(request,'login.html',{'login_form': login_form})
+    return render(request,'login.html',{'login_form': login_form})
 
 def logout(request):
     logout(request)
