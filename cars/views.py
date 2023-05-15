@@ -3,6 +3,8 @@ from django.urls import reverse
 from cars.models import Car
 from .forms import CarModelForm 
 from django.views import View
+from django.views.generic import ListView
+
 
 '''
 def cars_view(request):
@@ -30,7 +32,11 @@ class CarsView(View):
             request, 'cars.html',
             {'cars': cars }
      )
-
+class CarsListView(ListView):
+    model = Car
+    template_name = 'cars.html'
+    context_object_name = 'cars'
+    
 '''      
 def new_car(request):
     if request.method == "POST":
