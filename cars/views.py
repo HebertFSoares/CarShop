@@ -3,7 +3,7 @@ from django.urls import reverse
 from cars.models import Car
 from .forms import CarModelForm 
 from django.views import View
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView
 
 class CarsListView(ListView):
     model = Car
@@ -31,3 +31,9 @@ class NewCar(View):
             new_car_form.save()
             return redirect(reverse('cars_list'))
         return render(request, 'new_cars.html',{'new_car_form': new_car_form})
+    
+class NewCarCreateView(CreateView):
+    model = 'car'
+    form_class = CarModelForm
+    template_name = 'new_cars.html'
+    success_url = 'cars_list'
