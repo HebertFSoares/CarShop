@@ -41,5 +41,5 @@ class NewCarCreateView(CreateView):
     
 class CarDetailView(DetailView):
     model = Car
-    template_namem = 'car_detail.html'
+    template_name   = 'car_detail.html'
     
