@@ -4,6 +4,7 @@ from cars.models import Car
 from .forms import CarModelForm 
 from django.views import View
 from django.views.generic import ListView, CreateView
+from django.urls import reverse_lazy
 
 class CarsListView(ListView):
     model = Car
@@ -36,4 +37,4 @@ class NewCarCreateView(CreateView):
     model = 'car'
     form_class = CarModelForm
     template_name = 'new_cars.html'
-    success_url = 'cars_list'
+    success_url = reverse_lazy('cars_list')
