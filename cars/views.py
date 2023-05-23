@@ -19,22 +19,6 @@ class CarsListView(ListView):
             cars = Car.objects.filter(model__icontains=search)
         return cars
     
-        
-'''
-class NewCar(View):
-    
-    def get(self,request):
-        new_car_form = CarModelForm()
-        return render(request, 'new_cars.html',{'new_car_form': new_car_form})
-
-    def post(self,request):
-        new_car_form = CarModelForm(request.POST, request.FILES)
-        if new_car_form.is_valid():
-            new_car_form.save()
-            return redirect(reverse('cars_list'))
-        return render(request, 'new_cars.html',{'new_car_form': new_car_form})
-'''
-    
 class NewCarCreateView(CreateView):
     model = 'car'
     form_class = CarModelForm

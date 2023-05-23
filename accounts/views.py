@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate,login
 from django.urls import reverse
+from django.contrib import auth
 
 
 def register(request):
@@ -31,5 +32,5 @@ def user_login(request):
     return render(request,'login.html',{'login_form': login_form})
 
 def logout(request):
-    logout(request)
-    return redirect('cars/cars_list')
+    auth.logout(request)
+    return redirect(reverse('login'))
