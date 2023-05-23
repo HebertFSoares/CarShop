@@ -1,9 +1,9 @@
 from django.shortcuts import render,redirect
 from django.urls import reverse
 from cars.models import Car
-from .forms import CarModelForm 
+from .forms import CarModelForm
 from django.views import View
-from django.views.generic import ListView, CreateView, DetailView, UpdateView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
 class CarsListView(ListView):
@@ -20,6 +20,7 @@ class CarsListView(ListView):
         return cars
     
         
+'''
 class NewCar(View):
     
     def get(self,request):
@@ -32,6 +33,7 @@ class NewCar(View):
             new_car_form.save()
             return redirect(reverse('cars_list'))
         return render(request, 'new_cars.html',{'new_car_form': new_car_form})
+'''
     
 class NewCarCreateView(CreateView):
     model = 'car'
@@ -47,4 +49,9 @@ class CarUpdateView(UpdateView):
     model = Car
     form_class = CarModelForm
     template_name = 'car_update.html'
+    success_url = reverse_lazy('cars')
+    
+class CarDeleteView(DeleteView):
+    model = Car
+    template_name = 'car_delete.html'
     success_url = reverse_lazy('cars')
