@@ -12,6 +12,11 @@ def car_invetory_update():
         cars_count = cars_count,
         cars_value = cars_value
     )
+    
+@receiver(pre_save, sender=Car)
+def car_pre_save(sender, instance, **kwargs):
+    if not instance.bio:
+        instance.bio = "Bio gerada automaticamente"
 
 @receiver(post_save, sender=Car)
 def car_pre_save(sender, instance, **kwargs):
