@@ -16,6 +16,7 @@ Este é um projeto de um sistema de gerenciamento de veículos para uma loja de 
 - Sqlite
 - HTML/CSS
 - Bootstrap
+- OpenAI GPT-3
 
 ## Requisitos
 ### Para executar o projeto em sua máquina local, você precisará ter o Python 3 instalado. Além disso, recomendamos utilizar um ambiente virtual para instalar as dependências necessárias.
@@ -48,6 +49,8 @@ python manage.py createsuperuser
 ```
 python manage.py runserver
 ```
+## Uso da API da OpenAI
+Este projeto também utiliza a API da OpenAI, especificamente o modelo GPT-3, para gerar descrições de venda para os veículos cadastrados. Através dessa integração, as descrições são geradas automaticamente com base nas informações do veículo.
 
 ## Contribuição
 Este projeto é de código aberto e contribuições são bem-vindas. Se você quiser contribuir com o projeto, por favor, abra uma issue ou um pull request.
