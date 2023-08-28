@@ -1,4 +1,2 @@
 # Ignorar arquivos e pastas
-venv/
-db.sqlite3
-app/settings.py
+**/app
