@@ -1,5 +1,6 @@
 # CarShop
-Este é um projeto de um sistema de gerenciamento de veículos para uma loja de veículos. Ele foi desenvolvido como parte do meu aprendizado e prática em desenvolvimento web, utilizando as tecnologias Django e Python.
+Uma plataforma web desenvolvida para entusiastas automotivos e compradores em busca de sua próxima jornada sobre rodas. Nossa aplicação oferece uma experiência intuitiva de compra de carros, permitindo que os usuários explorem uma ampla variedade de veículos.
+
 
 ## Funcionalidades
 - Cadastro de Usuário: Os usuários podem se cadastrar no sistema fornecendo suas informações básicas, como nome, e-mail e senha.
